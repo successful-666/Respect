@@ -1,5 +1,6 @@
 #include "Serial_motor.h"
-
+#include "bsp_uart.h"
+#include "board.h"
 struct Params	Motor;	//电机参数
 
 

@@ -64,14 +64,7 @@ void uart0_send_string(char* str)
 	}
 }
 
-void usart0_send_bytes(unsigned char *buf, int len)
-{
-  while(len--)
-  {
-    DL_UART_Main_transmitDataBlocking(UART_0_INST, *buf);
-    buf++;
-  }
-}
+
 
 #if !defined(__MICROLIB)
 
@@ -93,7 +86,7 @@ void _sys_exit(int x)
 #endif
 
 
-//printf重定义-11
+//printf重定义
 int fputc(int ch, FILE *stream)
 {
 	
@@ -104,21 +97,6 @@ int fputc(int ch, FILE *stream)
 	return ch;
 }
 
-//串口中断
-void UART_0_INST_IRQHandler(void)
-{
-	
-	switch( DL_UART_getPendingInterrupt(UART_0_INST) )
-	{
-		case DL_UART_IIDX_RX:
-		
-			uart_data = DL_UART_Main_receiveData(UART_0_INST);
-			
-			break;
-		
-		default:
-			break;
-	}
-}
+
 
 
