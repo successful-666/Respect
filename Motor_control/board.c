@@ -93,7 +93,7 @@ void _sys_exit(int x)
 #endif
 
 
-//printf重定义
+//printf重定义-11
 int fputc(int ch, FILE *stream)
 {
 	
